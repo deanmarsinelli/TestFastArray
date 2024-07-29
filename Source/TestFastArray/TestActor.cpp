@@ -3,7 +3,7 @@
 
 ATestActor::ATestActor()
 {
-	bReplicated = true;
+	bReplicates = true;
 }
 
 void ATestActor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -18,15 +18,15 @@ void ATestActor::BeginPlay()
 
 	if (HasAuthority())
 	{
-		// add some starting data to the array on the server
+		// add some starting data to the array on the server before the first replication
 		constexpr int32 Size = 10;
 		TestFastArray.Entries.SetNum(Size);
 
 		for (int32 Idx = 0; Idx < Size; ++Idx)
 		{
-			TestFastArray.Entries[Idx].Num = Idx;
+			FTestFastArrayItem& Item = TestFastArray.Entries[Idx];
+			Item.Num = Idx;
+			TestFastArray.MarkItemDirty(Item);
 		}
-
-		TestFastArray.MarkArrayDirty();
 	}
 }

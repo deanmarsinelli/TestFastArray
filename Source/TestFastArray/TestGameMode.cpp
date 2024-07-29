@@ -6,7 +6,7 @@
 void ATestGameMode::BeginPlay()
 {
 	FTimerHandle Handle;
-	GetWorld()->GetTimerManager().SetTimer(Handle, this, &ATestGameMode::SpawnChild, 3.f);
+	GetWorld()->GetTimerManager().SetTimer(Handle, this, &ATestGameMode::SpawnChild, 2.f);
 }
 
 void ATestGameMode::SpawnChild()
@@ -19,7 +19,7 @@ void ATestGameMode::SpawnChild()
 		GetWorld()->SpawnActor(Class, &Transform);
 
 		FTimerHandle Handle;
-		GetWorld()->GetTimerManager().SetTimer(Handle, this, &ATestGameMode::SpawnGrandChild, 3.f);
+		GetWorld()->GetTimerManager().SetTimer(Handle, this, &ATestGameMode::SpawnGrandChild, 2.f);
 	}
 }
 
