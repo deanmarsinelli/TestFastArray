@@ -1,6 +1,5 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{04A5D4FF-4CBF-813D-AFF0-9DB6D71660FD}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -8,15 +7,6 @@
 			"Name": "TestFastArray",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
-		}
-	],
-	"Plugins": [
-		{
-			"Name": "ModelingToolsEditorMode",
-			"Enabled": true,
-			"TargetAllowList": [
-				"Editor"
-			]
 		}
 	]
 }
